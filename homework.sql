@@ -1,6 +1,18 @@
 --การ Query ข้อมูลจากหลายตาราง (Join)
 -- 1.   จงแสดงข้อมูลรหัสใบสั่งซื้อ ชื่อบริษัทลูกค้า ชื่อและนามสกุลพนักงาน(ในคอลัมน์เดียวกัน) วันที่สั่งซื้อ ชื่อบริษัทขนส่งของ เมืองและประเทศที่ส่งของไป รวมถึงยอดเงินที่ต้องรับจากลูกค้าด้วย  
+SELECT o.OrderID, c.CompanyName AS Customer, e.FirstName + ' ' + e.LastName AS Employee, o.OrderDate,s.CompanyName AS Shipper,
+o.ShipCity,o.ShipCountry, ROUND(SUM(od.Quantity * od.UnitPrice * (1 - od.Discount)),2) AS TotalAmount
+FROM Orders o JOIN Customers c ON o.CustomerID = c.CustomerID
+            JOIN Employees e ON o.EmployeeID = e.EmployeeID
+            JOIN Shippers s ON o.ShipVia = s.ShipperID
+            JOIN [Order Details] od ON o.OrderID = od.OrderID
+GROUP BY o.OrderID, c.CompanyName, e.FirstName, e.LastName, o.OrderDate, s.CompanyName, o.ShipCity, o.ShipCountry;
 -- 2.   จงแสดง ข้อมูล ชื่อบริษัทลูกค้า ชื่อผู้ติดต่อ เมือง ประเทศ จำนวนใบสั่งซื้อที่เกี่ยวข้องและ ยอดการสั่งซื้อทั้งหมดเลือกมาเฉพาะเดือน มกราคมถึง มีนาคม  1997
+select*
+FROM Orders o JOIN Customers c ON o.CustomerID = c.CustomerID
+            JOIN [Order Details] od ON o.OrderID = od.OrderID
+WHERE o.OrderDate BETWEEN '1997-01-01' AND '1997-03-31'
+GROUP BY c.CompanyName, c.ContactName, c.City, c.Country;
 -- 3.   จงแสดงชื่อเต็มของพนักงาน ตำแหน่ง เบอร์โทรศัพท์ จำนวนใบสั่งซื้อ รวมถึงยอดการสั่งซื้อทั้งหมดในเดือนพฤศจิกายน ธันวาคม 2539  โดยที่ใบสั่งซื้อนั้นถูกส่งไปประเทศ USA, Canada หรือ Mexico
 -- 4.   จงแสดงรหัสสินค้า ชื่อสินค้า ราคาต่อหน่วย  และจำนวนทั้งหมดที่ขายได้ในเดือน มิถุนายน 2540
 -- 5.   จงแสดงรหัสสินค้า ชื่อสินค้า ราคาต่อหน่วย และยอดเงินทั้งหมดที่ขายได้ ในเดือน มกราคม 2540 แสดงเป็นทศนิยม 2 ตำแหน่ง
