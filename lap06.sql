@@ -1,30 +1,41 @@
-SELECT CategoryName, ProductName, UnitPrice
-FROM Products as p, Categories as c
-WHERE p.CategoryID = c.CategoryID
-and CategoryName = 'seafood'
+SELECT CategoryName, ProductNAme, UnitPrice
+From   Products, Categories
+WHERE  Products.CategoryID = Categories.CategoryID
+AND    CategoryName ='seafood'
 
-SELECT CategoryName, ProductName, UnitPrice
-FROM Products Join Categories
-ON Products.CategoryID=Categories.CategoryID
-WHERE CategoryName = 'seafood'
+SELECT CategoryName, ProductNAme, UnitPrice
+From   Products AS p JOIN Categories as c
+ON     p.CategoryID = C.CategoryID
+WHERE  CategoryName ='seafood'
 
-SELECT CompanyName, OrderID
-FROM Orders, Shippers ShipperID = Orders Shipvia
-WHERE Shippers.ShipperID = Orders.Shipvia
-AND OrderID = 10275
+SELECT * from Orders WHERE OrderID =10250
+SELECT * FROM [Order Details] WHERE orderID = 10250
 
-SELECT CompanyName, OrderID
-FROM Orders JOIN Shippers
-ON Shippers.ShipperID = Orders.Shipvia
-WHERE OrderID = 10275
+SELECT p.ProductID, p.ProductName, s.CompanyName, s.Country
+from Products p join Suppliers s on p.SupplierID = s.SupplierID
+Where Country in ('usa','uk')
 
+SELECT e.EmployeeID, FirstName, o.OrderID
+from Employees e join Orders o on e.EmployeeID = o.EmployeeID
+order by EmployeeID
 
-SELECT* p.ProductID, s.CategoryName, p.ProductName, s.Country
-FROM  Products p joun Suppliers s on p.supplierID = s.SupplierID
-WHERE Country in ('usa' 'uk')
+SELECT  o.OrderID  เลขใบสั่งซื้อ, c.CompanyName ลูกค้า,
+        E.FirstName พนักงาน, O.ShipAddress ส่งไปที่
+From Orders O   join Customers C on O.CustomerID = C.CustomerID 
+                JOIN Employees E on O.EmployeeID = E.EmployeeID
 
-Select EmployeeID, FirstName, o.OrderID
-from Employee e JOIN Orders o on e EmployeeID = o.EmployeeID
-oder by EmployeeID
+SELECT s.CompanyName, count(*) จำนวนorders
+From Shippers s join Orders o on s.ShipperID = o.ShipVia
+GROUP BY s.CompanyName
+ORDER BY 2 desc
 
+SELECT p.ProductID, p.ProductName, sum(Quantity)จำนวนที่ขายได้
+from Products p JOIN [Order Details] od on p.ProductID =od.ProductID
+GROUP BY p.ProductID, 
 
+SELECT distinct p.ProductID, p.ProductName 
+FROM Employees e join Orders o on e. EmployeeID = o.EmployeeID
+join [Orders Datails] od on o. OrderID = od.OrderID
+join Products p on p. ProductID = od.ProductID
+WHERE e.FirstName = 'nancy'
+ORDER BY ProductID
