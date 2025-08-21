@@ -41,7 +41,11 @@ WHERE e.FirstName = 'Nancy'
  ORDER BY p.ProductID
 
 
-SELECT*
-FROM 
+SELECT distinct s.Country
+FROM Customers c JOIN orders o on c.CustomerID = o.CustomerID
+                JOIN [Order Details] od on o.OrderID = od.OrderID
+                JOIN Products p on p.ProductID = od.ProductID
+                JOIN Suppliers s on s.SupplierID = p.SupplierID
+WHERE c.CompanyName = 'Around the Horn'
 
 
