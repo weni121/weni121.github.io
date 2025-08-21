@@ -31,11 +31,17 @@ ORDER BY 2 desc
 
 SELECT p.ProductID, p.ProductName, sum(Quantity)จำนวนที่ขายได้
 from Products p JOIN [Order Details] od on p.ProductID =od.ProductID
-GROUP BY p.ProductID, 
+GROUP BY p.ProductID, p.ProductName 
 
-SELECT distinct p.ProductID, p.ProductName 
-FROM Employees e join Orders o on e. EmployeeID = o.EmployeeID
-join [Orders Datails] od on o. OrderID = od.OrderID
-join Products p on p. ProductID = od.ProductID
-WHERE e.FirstName = 'nancy'
-ORDER BY ProductID
+SELECT Distinct  p.ProductID pProductName
+FROM Employees e JOIN Orders o on  e.EmployeeID = o.EmployeeID 
+                JOIN[Order Details] OD ON O.OrderID = od.OrderID
+                JOIN Products p on p.ProductID = od.ProductID
+WHERE e.FirstName = 'Nancy'           
+ ORDER BY p.ProductID
+
+
+SELECT*
+FROM 
+
+
