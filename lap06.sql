@@ -15,5 +15,5 @@ AND OrderID = 10275
 
 SELECT CompanyName, OrderID
 FROM Orders JOIN Shippers
-WHERE Shippers.ShipperID = Order.Shipvia
+ON Shippers.ShipperID = Order.Shipvia
 WHERE OrderID = 10275
