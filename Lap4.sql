@@ -1,4 +1,14 @@
 -- 1.   จงแสดงให้เห็นว่าพนักงานแต่ละคนขายสินค้าประเภท Beverage ได้เป็นจำนวนเท่าใด และเป็นจำนวนกี่ชิ้น เฉพาะครึ่งปีแรกของ 2540(ทศนิยม 4 ตำแหน่ง)
+SELECT e.EmployeeID,e.FirstName + ' ' + e.LastName AS EmployeeName,CAST(ROUND(SUM(od.UnitPrice * od.Quantity * (1 - od.Discount)), 4) AS DECIMAL(18,4)) AS TotalAmount,CAST(ROUND(SUM(od.Quantity),4) AS DECIMAL(18,4)) AS TotalQuantity
+FROM Employees e
+JOIN Orders o ON e.EmployeeID = o.EmployeeID
+JOIN [Order Details] od ON o.OrderID = od.OrderID
+JOIN Products p ON od.ProductID = p.ProductID
+JOIN Categories c ON p.CategoryID = c.CategoryID
+WHERE c.CategoryName = 'Beverages'
+  AND o.OrderDate >= '1997-01-01' AND o.OrderDate < '1997-07-01'
+GROUP BY e.EmployeeID, e.FirstName, e.LastName
+ORDER BY e.EmployeeID;
 -- 2.   จงแสดงชื่อบริษัทตัวแทนจำหน่าย  เบอร์โทร เบอร์แฟกซ์ ชื่อผู้ติดต่อ จำนวนชนิดสินค้าประเภท Beverage ที่จำหน่าย โดยแสดงจำนวนสินค้า จากมากไปน้อย 3 อันดับแรก
 -- 3.   จงแสดงข้อมูลชื่อลูกค้า ชื่อผู้ติดต่อ เบอร์โทรศัพท์ ของลูกค้าที่ซื้อของในเดือน สิงหาคม 2539 ยอดรวมของการซื้อโดยแสดงเฉพาะ ลูกค้าที่ไม่มีเบอร์แฟกซ์
 -- 4.   แสดงรหัสสินค้า ชื่อสินค้า จำนวนที่ขายได้ทั้งหมดในปี 2541 ยอดเงินรวมที่ขายได้ทั้งหมดโดยเรียงลำดับตาม จำนวนที่ขายได้เรียงจากน้อยไปมาก พรอ้มทั้งใส่ลำดับที่ ให้กับรายการแต่ละรายการด้วย
