@@ -80,4 +80,10 @@ Delete FROM Shippers
 WHERE ShipperID = 4
 
 
-SELECT * FROM Orders
+SELECT * FROM Employees
+
+--ต้องการข้อมูล รหัสและชื่อพนักงาน และรหัสและชื่อพนักงาน
+SELECT emp.EmployeeID, emp.FirstName ชื่อพนักงาน
+        boss.EmployeeID, boss.FirstName ชื่อหัวหน้า
+FROM Employees emp JOIN Employees boss
+ON emp.ReportsTo = boss.EmployeeID
