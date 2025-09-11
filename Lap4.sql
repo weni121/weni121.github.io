@@ -6,7 +6,7 @@ JOIN [Order Details] od ON o.OrderID = od.OrderID
 JOIN Products p ON od.ProductID = p.ProductID
 JOIN Categories c ON p.CategoryID = c.CategoryID
 WHERE c.CategoryName = 'Beverages'
-  AND o.OrderDate >= '1997-01-01' AND o.OrderDate < '1997-07-01'
+AND o.OrderDate >= '1997-01-01' AND o.OrderDate < '1997-07-01'
 GROUP BY e.EmployeeID, e.FirstName, e.LastName
 ORDER BY e.EmployeeID;
 -- 2.   จงแสดงชื่อบริษัทตัวแทนจำหน่าย  เบอร์โทร เบอร์แฟกซ์ ชื่อผู้ติดต่อ จำนวนชนิดสินค้าประเภท Beverage ที่จำหน่าย โดยแสดงจำนวนสินค้า จากมากไปน้อย 3 อันดับแรก
