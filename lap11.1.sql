@@ -1,7 +1,7 @@
 CREATE DATABASE ZooDB
 GO
 
-USE Zoo
+USE ZooDB
 GO
 
 CREATE TABLE AnimalType (
