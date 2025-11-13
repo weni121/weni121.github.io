@@ -1,38 +1,162 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แนะนำตัว</title>
-    <style>
-        body {
-            font-family: 'Tahoma', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            max-width: 600px;
-            margin: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #0066cc;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub.io ของนักศึกษา</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      background-color: #ffffff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1E3A8A;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    h2 {
+      color: #1E3A8A;
+      border-bottom: 2px solid #1E3A8A;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #1E3A8A;
+    }
+
+    .icon {
+      opacity: 0.8;
+      margin-right: 8px;
+      color: #1E3A8A;
+    }
+
+    .activities img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      background-color: #1E3A8A;
+    }
+
+    a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>สวัสดีค่ะ</h1>
-        <p><strong>ชื่อ:</strong> เวณิษา </p>
-        <p><strong>ชื่อเล่น:</strong> เวนิ </p>
-        <p><strong>อายุ:</strong> 20 ปี</p>
-        <p><strong>อาชีพ/นักเรียนที่:</strong>นักศึกษา มหาวิทยาลัยราชภัฏอุดรธานี</p>
-        <p><strong>งานอดิเรก:</strong> อ่านการ์ตูน </p>
-        <p><strong>เป้าหมายในชีวิต:</strong> developer </p>
-    </div>
+
+  <header>
+    <h1><i class="fa-solid fa-user-graduate icon"></i>"Welcome to my Profile"</h1>
+  </header>
+
+  <section id="Introduction / Profile">
+  <h2 style="text-align: center;">
+    <i class="fa-solid fa-id-card icon"></i> Introduction / Profile
+  </h2>
+  <img src="me.png" alt="me" style="display: block; margin: auto; width: 200px; height: auto;">
+  <ul><br><br>
+    <li>ชื่อนามสกุล: นางสาวเวณิษา สีมา</li>
+    <li>Name: Miss Wenisa Seema</li>
+    <li>มหาวิทยาลัย: มหาวิทยาลัยราชภัฏอุดรธานี</li>
+    <li>คณะ: วิทยาศาสตร์</li>
+    <li>ปีการศึกษา 2567 นักศึกษาชั้นปีที่ 2</li>
+    <li>ความสนใจอื่นๆ: งานเขียน</li>
+  </ul>
+</section>
+
+  <section id="skills">
+  <h2 style="text-align: center;">
+    <i class="fa-solid fa-code icon"></i> Skills
+  </h2>
+  <ul>
+    <li>Sport: Basketball and Volleyball</li>
+    <li>Art: Writing</li>
+    <li>Programming: Python</li>
+    <li>Tools: Git, VS Code, Figma </li>
+    <li>Soft Skills: สื่อสารชัดเจน, แก้ปัญหาเฉพาะหน้าได้, ควบคุมอารมณ์ได้ดี</li>
+  </ul>
+</section>
+
+  <section id="projects">
+  <h2 style="text-align: center;">
+    <i class="fa-solid fa-diagram-project icon"></i> Projects / Portfolio
+  </h2>
+  <ul>
+    <li>เว็บไซต์ที่เคยพัฒนา: หน้าเว็บไซต์การละเล่น ปี1/2567</li>
+  </ul>
+</section>
+
+  
+  <section id="education">
+    <h2><i class="fa-solid fa-graduation-cap icon"></i> Education </h2>
+    <p><li>พ.ศ.2554-2560 ชั้นประถมศึกษาปีที่ 1-6 โรงเรียนเทศบาล2มุขมนตรี</li><br>
+        <li>พ.ศ.2561-2567 ชั้นมัธยมศึกษาปีที่ 1-6 โรงเรียนอุดรพิชัยรักษ์พิทยา </li><br>
+        <li>มัธยมศึกษาปีที่4-6 แผนการเรียนวิทย์-คณิต </li><br>
+        <li>พ.ศ. 2567-2568 ชั้นอุดมศึกษา ปีที่1-2 คณะวิทยาศาสตร์ สาขาเทคโนโลยีและสารสนเทศมหาวิทยาลัยราชภัฏอุดรธานี</li></p>
+  </section>
+
+  <section id="activities" class="activities">
+    <h2><i class="fa-solid fa-trophy icon"></i>Activities / Achievements </h2>
+    <ul>
+      <li>เข้าร่วมอบรมการประยุกต์ใช้ deshboard เพื่อความมั่นคงไซเบอร์</li>
+    </ul>
+  </section>
+
+    <section id="contact">
+    <h2><i class="fa-solid fa-envelope icon"></i> Contact </h2>
+    <p>Email: 67040233121@udru.ac.th</p>
+    <p>GitHub: <a href="#">github.com/weni121</a></p>
+    <p>Instagram: iwanttosleepallthetime</p>
+    <p>Line</p><img src="qr.jpg" alt="qr" style="width: 95px; height: auto;">
+  </section>
+
+  <section id="goal">
+    <h2><i class="fa-solid fa-bullseye icon"></i> Career Interest </h2>
+    <p>เป้าหมายในอนาคต: Software Developer</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Student Portfolio | Designed by weni</p>
+  </footer>
+
 </body>
 </html>
