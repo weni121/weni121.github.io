@@ -9,6 +9,8 @@
         echo"hello, World";
         echo"<br>";
         echo"<h2>My Name is WeNi.</h2>";
+        echo 'php version:'.phpversion();
+        //phpinfo();
     ?>
 </body>
 </html>
